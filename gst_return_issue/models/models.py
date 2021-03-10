@@ -40,6 +40,8 @@ class L10nInReportAccount(models.AbstractModel):
             elif gst_section == 'cdnur':
                 domain += [
                     ('partner_vat', '=', False),
+                    ('total', '>', '250000'), ('supply_type', '=', 'Inter State'),
+                    ('journal_id.l10n_in_import_export', '!=', True),
                     ('move_type', 'in', ['out_refund', 'in_refund'])]
             elif gst_section == 'exp':
                 domain += [
